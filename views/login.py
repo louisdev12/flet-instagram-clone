@@ -125,7 +125,7 @@ def login_view(page: ft.Page):
                     height=55,
                     width=370,
                     alignment=ft.alignment.center,
-                    on_click=lambda _: print('Create account clicked!'),
+                    on_click=lambda e: page.go("/signupphone"),
                 ),
                 
                 ft.Container(height=30),  # Spacing before Meta logo
