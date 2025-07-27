@@ -21,8 +21,8 @@ def splash_view(page: ft.Page):
                 content=ft.Image(
                     src="https://i.imgur.com/Pv5sDen.png",
                     fit=ft.ImageFit.CONTAIN,
-                    width=100, 
-                    height=100
+                    width=90, 
+                    height=90
                 ),
                 alignment=ft.alignment.center,
                 padding=ft.padding.only(bottom=30),  # Add some space from bottom
