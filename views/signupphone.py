@@ -88,7 +88,7 @@ def signupphone_view(page: ft.Page):
         height=55,
         width=370,
         alignment=ft.alignment.center,
-        on_click=lambda _: print('Email signup clicked!'),
+        on_click=lambda _: page.go("/signupemail"),
     )
     
     # Middle spacer for flexible spacing
@@ -105,7 +105,7 @@ def signupphone_view(page: ft.Page):
                 color="#0064E0",
                 overlay_color=ft.Colors.TRANSPARENT,
             ),
-            on_click=lambda _: print('Already have account clicked!'),
+            on_click=lambda _: page.go("/login"),
         ),
         alignment=ft.alignment.center,
     )
