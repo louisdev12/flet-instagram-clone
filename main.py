@@ -2,6 +2,7 @@ import flet as ft
 from views.splash import splash_view
 from views.login import login_view
 from views.signupphone import signupphone_view
+from views.signupemail import signupemail_view
 
 # Entry point for the Flet app
 def main(page: ft.Page):
@@ -41,6 +42,8 @@ def main(page: ft.Page):
             page.views.append(login_view(page))  # Show splash screen
         elif page.route == "/signupphone":
             page.views.append(signupphone_view(page))  # Show splash screen
+        elif page.route == "/signupemail":
+            page.views.append(signupemail_view(page))  # Show splash screen
         page.update()  # Apply changes
 
     # ✅ Handle view stack popping (e.g. back button)
