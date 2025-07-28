@@ -5,6 +5,7 @@ from views.signupphone import signupphone_view
 from views.signupemail import signupemail_view
 from views.mobileverification import mobileverification_view
 from views.createpassword import createpassword_view
+from views.datebirth import datebirth_view
 
 # Entry point for the Flet app
 def main(page: ft.Page):
@@ -50,6 +51,8 @@ def main(page: ft.Page):
             page.views.append(mobileverification_view(page))  # Show splash screen
         elif page.route == "/createpassword":
             page.views.append(createpassword_view(page))  # Show splash screen
+        elif page.route == "/datebirth":
+            page.views.append(datebirth_view(page))  # Show splash screen
         page.update()  # Apply changes
 
     # ✅ Handle view stack popping (e.g. back button)
