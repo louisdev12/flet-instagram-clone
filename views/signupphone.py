@@ -58,6 +58,20 @@ def signupphone_view(page: ft.Page):
         padding=ft.padding.symmetric(horizontal=5),
     )
     
+    # Function to handle bottom sheet opening
+    def open_bottom_sheet(e):
+        page.open(bs)
+    
+    # Function to handle login navigation
+    def handle_login(e):
+        page.close(bs)
+        page.go("/login")
+    
+    # Function to handle mobile verification navigation
+    def handle_create_account(e):
+        page.close(bs)
+        page.go("/mobileverification")
+    
     # Next button
     next_button = ft.Container(
         content=ft.Text(
@@ -71,7 +85,7 @@ def signupphone_view(page: ft.Page):
         height=55,
         width=370,
         alignment=ft.alignment.center,
-        on_click=lambda _: print('Next button clicked!'),
+        on_click=open_bottom_sheet,
     )
     
     # Sign up with email button
@@ -89,6 +103,45 @@ def signupphone_view(page: ft.Page):
         width=370,
         alignment=ft.alignment.center,
         on_click=lambda _: page.go("/signupemail"),
+    )
+    
+    # Create account button (using ElevatedButton for better reliability)
+    create_account_button = ft.ElevatedButton(
+        content=ft.Text(
+            "Create new account",
+            color=ft.Colors.WHITE,
+            size=16,
+            weight=ft.FontWeight.BOLD,
+        ),
+        style=ft.ButtonStyle(
+            bgcolor=ft.Colors.TRANSPARENT,
+            side=ft.BorderSide(1.5, ft.Colors.with_opacity(0.4, ft.Colors.WHITE)),
+            shape=ft.RoundedRectangleBorder(radius=25),
+            elevation=0,
+            overlay_color=ft.Colors.with_opacity(0.1, ft.Colors.WHITE),
+        ),
+        height=55,
+        width=370,
+        on_click=handle_create_account,
+    )
+    
+    # Existing account button (using ElevatedButton for better reliability)
+    existing_account_button = ft.ElevatedButton(
+        content=ft.Text(
+            "Log in to an existing account",
+            color=ft.Colors.WHITE,
+            size=16,
+            weight=ft.FontWeight.BOLD,
+        ),
+        style=ft.ButtonStyle(
+            bgcolor='#0064E0',
+            shape=ft.RoundedRectangleBorder(radius=25),
+            elevation=0,
+            overlay_color=ft.Colors.with_opacity(0.1, ft.Colors.WHITE),
+        ),
+        height=55,
+        width=370,
+        on_click=handle_login,
     )
     
     # Middle spacer for flexible spacing
@@ -109,7 +162,39 @@ def signupphone_view(page: ft.Page):
         ),
         alignment=ft.alignment.center,
     )
-    
+
+    # Bottom sheet with proper button implementations
+    bs = ft.BottomSheet(
+        ft.Container(
+            ft.Column(
+                [
+                    ft.Text("Are you trying to log in?", size=22, weight=ft.FontWeight.BOLD),
+                    ft.Text(
+                        "This number is associated with an existing account. You can log in to it or create a new account with a new password.", 
+                        size=16,
+                        text_align=ft.TextAlign.CENTER,
+                    ),
+                    ft.Column([
+                        existing_account_button,
+                        create_account_button,
+                        ft.Container(height=50)
+                    ], 
+                    alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    ),
+                ],
+                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                tight=True,
+            ),
+            padding=ft.padding.only(top=10, left=10, right=10, bottom=100),
+            expand=True
+        ),
+        open=False,
+        dismissible=True,
+        show_drag_handle=True,
+        enable_drag=True,
+    )
+
     # Main layout with proper spacing
     main_content = ft.Column(
         [
