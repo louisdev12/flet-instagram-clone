@@ -119,7 +119,7 @@ def mobileverification_view(page: ft.Page):
             page.go("/createpassword")
         else:
             # Show error or highlight empty fields
-            page.show_snack_bar(
+            page.open(
                 ft.SnackBar(
                     content=ft.Text("Please enter all 6 digits"),
                     bgcolor=ft.Colors.RED_400,
