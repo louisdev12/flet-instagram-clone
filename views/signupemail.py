@@ -63,7 +63,7 @@ def signupemail_view(page: ft.Page):
     )
     
     # Sign up with email button
-    email_signup_button = ft.Container(
+    phone_signup_button = ft.Container(
         content=ft.Text(
             "Sign up with Mobile Number",
             color=ft.Colors.WHITE,
@@ -104,7 +104,7 @@ def signupemail_view(page: ft.Page):
             top_section,           # Title and description
             mobile_input,          # Mobile number input
             next_button,           # Next button
-            email_signup_button,   # Email signup option
+            phone_signup_button,   # Email signup option
             middle_spacer,         # Flexible spacer
             bottom_section,        # Already have account link
         ],
@@ -121,7 +121,7 @@ def signupemail_view(page: ft.Page):
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
                 icon_color=ft.Colors.WHITE,
-                on_click=lambda _: page.go("/login"),
+                on_click=lambda _: page.go("/signupphone"),
             ),
             bgcolor=ft.Colors.TRANSPARENT, 
             elevation_on_scroll=0,
