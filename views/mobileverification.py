@@ -116,6 +116,7 @@ def mobileverification_view(page: ft.Page):
         code = ''.join([field.value or '' for field in verification_fields])
         if len(code) == 6:
             verify_code(code)
+            page.go("/createpassword")
         else:
             # Show error or highlight empty fields
             page.show_snack_bar(
