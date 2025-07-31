@@ -103,6 +103,7 @@ def datebirth_view(page: ft.Page):
         height=55,
         width=370,
         alignment=ft.alignment.center,
+        on_click=lambda e: page.go("/username"),
     )
     
     # Middle spacer for flexible spacing
