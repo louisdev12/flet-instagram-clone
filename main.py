@@ -9,7 +9,12 @@ from views.datebirth import datebirth_view
 from views.name import namepage_view
 from views.username import username_view
 from views.policy import policy_view
-
+from views.profilepic import add_profile_pic_view
+from views.contactperm import allow_contacts_view
+from views.notifications import turn_on_notifications_view
+from views.facebook import facebook_suggestions_view
+from views.followpeople import follow_people_view
+from views.addemail import add_email_view
 # Entry point for the Flet app
 def main(page: ft.Page):
     # Basic window properties
@@ -60,7 +65,18 @@ def main(page: ft.Page):
             page.views.append(username_view(page))  # Show splash screen
         elif page.route == "/policy":
             page.views.append(policy_view(page))  # Show splash screen
-        
+        elif page.route == "/add_profile_pic":
+            page.views.append(add_profile_pic_view(page))  # Show splash screen
+        elif page.route == "/allow_contacts":
+            page.views.append(allow_contacts_view(page))  # Show splash screen
+        elif page.route == "/turn_on_notifications":
+            page.views.append(turn_on_notifications_view(page))  # Show splash screen
+        elif page.route == "/facebook_suggestions":
+            page.views.append(facebook_suggestions_view(page))  # Show splash screen
+        elif page.route == "/follow_people":
+            page.views.append(follow_people_view(page))  # Show splash screen
+        elif page.route == "/add_email":
+            page.views.append(add_email_view(page))  # Show splash screen
         page.update()  # Apply changes
 
     # ✅ Handle view stack popping (e.g. back button)
