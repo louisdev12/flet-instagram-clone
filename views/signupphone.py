@@ -32,6 +32,7 @@ def signupphone_view(page: ft.Page):
         content=ft.TextField(
             hint_text='Mobile number',
             border_radius=15,
+            keyboard_type=ft.KeyboardType.PHONE,
             height=55,
             color=ft.Colors.WHITE,
             cursor_color=ft.Colors.WHITE,
