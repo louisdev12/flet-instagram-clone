@@ -6,13 +6,14 @@ from views.signupemail import signupemail_view
 from views.mobileverification import mobileverification_view
 from views.createpassword import createpassword_view
 from views.datebirth import datebirth_view
+from views.name import namepage_view
+from views.username import username_view
+from views.policy import policy_view
 
 # Entry point for the Flet app
 def main(page: ft.Page):
     # Basic window properties
     page.title = "Flet App"
-    page.window_width = 400
-    page.window_height = 700
     page.padding = 0    
     page.spacing = 0
     page.scroll = ft.ScrollMode.HIDDEN  # Disable scrolling
@@ -53,6 +54,13 @@ def main(page: ft.Page):
             page.views.append(createpassword_view(page))  # Show splash screen
         elif page.route == "/datebirth":
             page.views.append(datebirth_view(page))  # Show splash screen
+        elif page.route == "/name":
+            page.views.append(namepage_view(page))  # Show splash screen
+        elif page.route == "/username":
+            page.views.append(username_view(page))  # Show splash screen
+        elif page.route == "/policy":
+            page.views.append(policy_view(page))  # Show splash screen
+        
         page.update()  # Apply changes
 
     # ✅ Handle view stack popping (e.g. back button)
