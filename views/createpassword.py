@@ -119,7 +119,7 @@ def createpassword_view(page: ft.Page):
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
                 icon_color=ft.Colors.WHITE,
-                on_click=lambda _: page.go("/signupphone"),
+                on_click=lambda _: page.go("/login"),
             ),
             bgcolor=ft.Colors.TRANSPARENT, 
             elevation_on_scroll=0,
