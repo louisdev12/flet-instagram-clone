@@ -17,25 +17,6 @@ def add_email_view(page: ft.Page):
             text_align=text_align,
         )
 
-    # Top header
-    top_row = ft.Row(
-        [
-            ft.Container(expand=True),  # Spacer
-            ft.TextButton(
-                "Skip",
-                style=ft.ButtonStyle(
-                    color=TEXT_COLOR,
-                    text_style=ft.TextStyle(
-                        size=16,
-                        weight=ft.FontWeight.W_400
-                    )
-                )
-            )
-        ],
-        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-        vertical_alignment=ft.CrossAxisAlignment.CENTER,
-    )
-
     # Title
     title = styled_text(
         "Add an email address",
@@ -86,6 +67,7 @@ def add_email_view(page: ft.Page):
             color=ft.Colors.WHITE,
             height=50,
             width=content_width,
+            on_click=lambda _: page.go("/instagram_home"),
             style=ft.ButtonStyle(
                 shape=ft.RoundedRectangleBorder(radius=8),
                 text_style=ft.TextStyle(
@@ -131,10 +113,6 @@ def add_email_view(page: ft.Page):
     layout = ft.Column(
         [
             ft.Container(
-                content=top_row,
-                padding=ft.padding.symmetric(horizontal=10, vertical=15)
-            ),
-            ft.Container(
                 content=content_layout,
                 expand=True
             )
@@ -148,6 +126,17 @@ def add_email_view(page: ft.Page):
         controls=[layout],
         appbar=ft.AppBar(
             toolbar_height=30,
+            title=(ft.Row([ft.TextButton(
+                "Skip",
+                on_click=lambda _: page.go("/instagram_home"),
+                style=ft.ButtonStyle(
+                    color=TEXT_COLOR,
+                    text_style=ft.TextStyle(
+                        size=18,
+                        weight=ft.FontWeight.W_400
+                    )
+                )
+            )],alignment=ft.MainAxisAlignment.END)),
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
                 icon_color=ft.Colors.WHITE,
