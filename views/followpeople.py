@@ -32,35 +32,6 @@ def follow_people_view(page: ft.Page):
         {"name": "SpaceX", "username": "spacex", "verified": True, "following": False},
     ]
 
-
-    # Top header
-    top_row = ft.Row(
-        [
-            ft.Container(
-                content=styled_text(
-                    "Try following 5+ people",
-                    size=17,
-                    weight=ft.FontWeight.W_600
-                ),
-                expand=True,
-                alignment=ft.alignment.center
-            ),
-            ft.TextButton(
-                "Skip",
-                on_click=lambda _: page.go("/add_email"),
-                style=ft.ButtonStyle(
-                    color=TEXT_COLOR,
-                    text_style=ft.TextStyle(
-                        size=16,
-                        weight=ft.FontWeight.W_400
-                    )
-                )
-            )
-        ],
-        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-        vertical_alignment=ft.CrossAxisAlignment.CENTER,
-    )
-
     # Subtitle
     subtitle = styled_text(
         "Following isn't required, but is recommended for a personalized experience.",
@@ -219,10 +190,6 @@ def follow_people_view(page: ft.Page):
     layout = ft.Column(
         [
             ft.Container(
-                content=top_row,
-                padding=ft.padding.symmetric(horizontal=10, vertical=15)
-            ),
-            ft.Container(
                 content=content,
                 expand=True
             )
@@ -237,6 +204,17 @@ def follow_people_view(page: ft.Page):
         bgcolor=BG_COLOR,
         appbar=ft.AppBar(
             toolbar_height=30,
+            title=(ft.Row([ft.Text("Try following 5+ people",size=17,weight=ft.FontWeight.W_600),ft.TextButton(
+                "Skip",
+                on_click=lambda _: page.go("/add_email"),
+                style=ft.ButtonStyle(
+                    color=TEXT_COLOR,
+                    text_style=ft.TextStyle(
+                        size=16,
+                        weight=ft.FontWeight.W_400
+                    )
+                )
+            )],alignment=ft.MainAxisAlignment.CENTER)),
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
                 icon_color=ft.Colors.WHITE,
