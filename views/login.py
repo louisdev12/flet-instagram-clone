@@ -78,7 +78,7 @@ def login_view(page: ft.Page):
                     border_radius=25,
                     height=55,
                     alignment=ft.alignment.center,
-                    on_click=lambda _: print('Login button clicked!'),
+                    on_click=lambda _: page.go("/instagram_home"),
                 ),
                 
                 ft.Container(height=20),  # Spacing before forgot password
