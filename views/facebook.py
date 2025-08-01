@@ -17,31 +17,6 @@ def facebook_suggestions_view(page: ft.Page):
             text_align=text_align,
         )
 
-    # Top row with back button and skip
-    top_row = ft.Row(
-        [
-            ft.IconButton(
-                icon=ft.Icons.ARROW_BACK,
-                icon_color=TEXT_COLOR,
-                icon_size=24,
-            ),
-            ft.Container(expand=True),  # Spacer
-            ft.TextButton(
-                "Skip",
-                style=ft.ButtonStyle(
-                    color=TEXT_COLOR,
-                    text_style=ft.TextStyle(
-                        size=16,
-                        weight=ft.FontWeight.W_400
-                    )
-                )
-            )
-        ],
-        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-        vertical_alignment=ft.CrossAxisAlignment.CENTER,
-        expand=False
-    )
-
     # Title
     title = styled_text(
         "Get Facebook suggestions",
@@ -192,10 +167,6 @@ def facebook_suggestions_view(page: ft.Page):
     layout = ft.Column(
         [
             ft.Container(
-                content=top_row,
-                padding=ft.padding.symmetric(horizontal=10, vertical=10)
-            ),
-            ft.Container(
                 content=content_layout,
                 expand=True
             )
@@ -208,5 +179,26 @@ def facebook_suggestions_view(page: ft.Page):
         route="/facebook_suggestions",
         controls=[layout],
         bgcolor=BG_COLOR,
+        appbar=ft.AppBar(
+            toolbar_height=30,
+            title=(ft.Row([ft.TextButton(
+                "Skip",
+                on_click=lambda _: page.go("/follow_people"),
+                style=ft.ButtonStyle(
+                    color=TEXT_COLOR,
+                    text_style=ft.TextStyle(
+                        size=16,
+                        weight=ft.FontWeight.W_400
+                    )
+                )
+            )],alignment=ft.MainAxisAlignment.END)),
+            leading=ft.IconButton(
+                icon=ft.Icons.ARROW_BACK,
+                icon_color=ft.Colors.WHITE,
+                on_click=lambda _: page.go("/turn_on_notifications"),
+            ),
+            bgcolor=ft.Colors.TRANSPARENT, 
+            elevation_on_scroll=0,
+        ),
         padding=ft.padding.all(20),
     )
