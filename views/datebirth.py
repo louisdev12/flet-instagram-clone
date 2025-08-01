@@ -103,7 +103,7 @@ def datebirth_view(page: ft.Page):
         height=55,
         width=370,
         alignment=ft.alignment.center,
-        on_click=lambda e: page.go("/username"),
+        on_click=lambda e: page.go("/name"),
     )
     
     # Middle spacer for flexible spacing
@@ -147,7 +147,7 @@ def datebirth_view(page: ft.Page):
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
                 icon_color=ft.Colors.WHITE,
-                on_click=lambda _: page.go("/login"),
+                on_click=lambda _: page.go("/createpassword"),
             ),
             bgcolor=ft.Colors.TRANSPARENT, 
             elevation_on_scroll=0,
