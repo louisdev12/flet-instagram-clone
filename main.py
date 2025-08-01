@@ -16,6 +16,7 @@ from views.facebook import facebook_suggestions_view
 from views.followpeople import follow_people_view
 from views.addemail import add_email_view
 from views.home import instagram_home_view
+from views.emailverification import emailverification_view
 # Entry point for the Flet app
 def main(page: ft.Page):
     # Basic window properties
@@ -80,6 +81,8 @@ def main(page: ft.Page):
             page.views.append(add_email_view(page))  # Show splash screen
         elif page.route == "/instagram_home":
             page.views.append(instagram_home_view(page))  # Show splash screen
+        elif page.route == "/emailverification":
+            page.views.append(emailverification_view(page))  # Show splash screen
         page.update()  # Apply changes
 
     # ✅ Handle view stack popping (e.g. back button)
