@@ -161,7 +161,7 @@ def turn_on_notifications_view(page: ft.Page):
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
                 icon_color=ft.Colors.WHITE,
-                on_click=lambda _: page.go("/add_profile_pic"),
+                on_click=lambda _: page.go("/allow_contacts"),
             ),
             bgcolor=ft.Colors.TRANSPARENT, 
             elevation_on_scroll=0,
